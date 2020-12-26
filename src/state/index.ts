@@ -35,8 +35,8 @@ export const defaultState: State = {
   me: herve,
   myVoices: [],
   voices: [
-    new Voice("3224", herve, "iphone 10X, color black, 250GB, $500"),
-    new Voice("3224", jeanyves, "car BMW, color red, $15.000, year: 2011"),
-    new Voice("3224", andre, "Nike air, color black, 2018, $500"),
+    new Voice("3824", herve, "iphone 10X, color black, 250GB, $500"),
+    new Voice("3524", jeanyves, "car BMW, color red, $15.000, year: 2011"),
+    new Voice("3924", andre, "Nike air, color black, 2018, $500"),
   ],
 };

@@ -1,20 +1,31 @@
-import React from "react";
-import VoiceData from "../state/Voice";
+import React, { useContext } from "react";
+import { RouteComponentProps } from "react-router-dom";
+import context from "../context";
 import Shouter from "./Shouter";
 
-interface VoiceProps {
-  voiceData: VoiceData;
-}
+const Voice = (props: RouteComponentProps<{ Id: string }>) => {
+  const ctx = useContext(context);
 
-const Voice = (props: VoiceProps) => {
+  const voiceData = ctx.state.voices.find(
+    (voice) => voice.Id == props.match.params.Id
+  );
+
+  if (!voiceData) {
+    return (
+      <div className="voice">
+        <p className="voice-sorry">:-( Sorry this voice does not exist</p>
+      </div>
+    );
+  }
+
   return (
     <div className="voice">
       <div className="voice-shouter">
-        <Shouter shouterData={props.voiceData.shouter} />
+        <Shouter shouterData={voiceData.shouter} />
       </div>
-      <div className="voice-message">{props.voiceData.message}</div>
+      <div className="voice-message">{voiceData.message}</div>
       <div className="voice-status">
-        Status: {`${props.voiceData.haveBeenHeard ? "Heard" : "Not Heard"}`}
+        Status: {`${voiceData.haveBeenHeard ? "Heard" : "Not Heard"}`}
       </div>
     </div>
   );

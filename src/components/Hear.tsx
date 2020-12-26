@@ -1,10 +1,11 @@
 import React, { useState, ChangeEvent, useContext, FormEvent } from "react";
+import { RouteComponentProps } from "react-router-dom";
 import context from "../context";
 import VoiceData, { hearParticularVoice } from "../state/Voice";
 import Voice from "./Voice";
 import VoiceList from "./VoiceList";
 
-const Hear = () => {
+const Hear = (props: RouteComponentProps) => {
   const ctx = useContext(context);
 
   const [voiceMessage, setVoiceMessage] = useState("");
