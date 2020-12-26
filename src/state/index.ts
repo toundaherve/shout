@@ -6,3 +6,37 @@ export default interface State {
   myVoices: Array<Voice>;
   voices: Array<Voice>;
 }
+
+const herve: Shouter = new Shouter(
+  "1234",
+  "herves",
+  "LS16 5RQ, Leeds",
+  "toundaherve@gmail.com",
+  "078575853"
+);
+
+const jeanyves: Shouter = new Shouter(
+  "4334",
+  "jumbo",
+  "LS16 5RQ, Leeds",
+  "jeanyves@gmail.com",
+  "078575853"
+);
+
+const andre: Shouter = new Shouter(
+  "6723",
+  "andre",
+  "LS16 5RQ, Leeds",
+  "andre@gmail.com",
+  "078575853"
+);
+
+export const defaultState: State = {
+  me: herve,
+  myVoices: [],
+  voices: [
+    new Voice("3224", herve, "iphone 10X, color black, 250GB, $500"),
+    new Voice("3224", jeanyves, "car BMW, color red, $15.000, year: 2011"),
+    new Voice("3224", andre, "Nike air, color black, 2018, $500"),
+  ],
+};
