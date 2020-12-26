@@ -1,14 +1,11 @@
-import logo from "./logo.svg";
 import "./App.css";
-import ShouterClass from "./state/Shouter";
-import Shouter from "./components/Shouter";
-import Shout from "./components/Shout";
 import { useState } from "react";
 import { defaultState } from "./state";
 import context from "./context";
 import Hear from "./components/Hear";
 import { BrowserRouter, Route } from "react-router-dom";
 import Voice from "./components/Voice";
+import MyVoices from "./components/MyVoices";
 
 function App() {
   const [state, setState] = useState(defaultState);
@@ -18,6 +15,7 @@ function App() {
         <BrowserRouter>
           <Route path="/" exact component={Hear} />
           <Route path="/voice/:Id" component={Voice} />
+          <Route path="/myvoices" component={MyVoices} />
         </BrowserRouter>
       </context.Provider>
     </div>

@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import VoiceData from "../state/Voice";
-import Voice from "./Voice";
 
 interface VoiceListProps {
   voiceListData: Array<VoiceData>;

@@ -7,7 +7,7 @@ const Voice = (props: RouteComponentProps<{ Id: string }>) => {
   const ctx = useContext(context);
 
   const voiceData = ctx.state.voices.find(
-    (voice) => voice.Id == props.match.params.Id
+    (voice) => voice.Id === props.match.params.Id
   );
 
   if (!voiceData) {

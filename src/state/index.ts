@@ -33,7 +33,7 @@ const andre: Shouter = new Shouter(
 
 export const defaultState: State = {
   me: herve,
-  myVoices: [],
+  myVoices: [new Voice("3824", herve, "macbook 10X, color black, 250GB, $500")],
   voices: [
     new Voice("3824", herve, "iphone 10X, color black, 250GB, $500"),
     new Voice("3524", jeanyves, "car BMW, color red, $15.000, year: 2011"),

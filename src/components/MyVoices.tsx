@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import context from "../context";
 import VoiceData from "../state/Voice";
 import VoiceList from "./VoiceList";
 
 const MyVoices = () => {
-  const myVoices: Array<VoiceData> = [];
+  const myVoices = useContext(context).state.myVoices;
   return (
     <div className="my-voices">
+      <h1 className="my-voices-title">My Voices</h1>
       <VoiceList voiceListData={myVoices} />
     </div>
   );
