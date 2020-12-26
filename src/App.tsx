@@ -7,6 +7,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Voice from "./components/Voice";
 import MyVoices from "./components/MyVoices";
 import Shout from "./components/Shout";
+import Navigation from "./components/Navigation";
 
 function App() {
   const [state, setState] = useState(defaultState);
@@ -14,6 +15,7 @@ function App() {
     <div className="App">
       <context.Provider value={{ state, setState }}>
         <BrowserRouter>
+          <Route path="/" component={Navigation} />
           <Route path="/" exact component={Hear} />
           <Route path="/voice/:Id" component={Voice} />
           <Route path="/myvoices" component={MyVoices} />
