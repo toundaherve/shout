@@ -1,20 +1,39 @@
-import React, { ChangeEvent, useState } from "react";
-import Shouter from "../state/Shouter";
+import React, { ChangeEvent, FormEvent, useContext, useState } from "react";
+import { RouteComponentProps } from "react-router-dom";
+import context from "../context";
+import "./Shout.css";
 
-const Shout = () => {
+const Shout = (props: RouteComponentProps) => {
+  const ctx = useContext(context);
+
   const [message, setMessage] = useState("");
 
   function handleChange(e: ChangeEvent<HTMLTextAreaElement>) {
     setMessage(e.target.value);
   }
 
-  function handleShout() {
-    // const voice = shouter1.shout(message);
+  function handleShout(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    const voice = ctx.state.me.shout(message);
+
+    if (!ctx.setState) {
+      throw new Error("No setState in context");
+    }
+
+    ctx.setState({
+      ...ctx.state,
+      voices: [...ctx.state.voices, voice],
+      myVoices: [...ctx.state.myVoices, voice],
+    });
+
+    props.history.push(`/voice/${voice.Id}`);
   }
 
   return (
     <div className="shout">
-      <form className="shout-form">
+      <h1 className="shout-title">Say what you want</h1>
+      <form className="shout-form" onSubmit={handleShout}>
         <label className="shout-message-label">Message: </label>
         <textarea
           className="shout-message"

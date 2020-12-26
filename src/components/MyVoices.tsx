@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import context from "../context";
-import VoiceData from "../state/Voice";
 import VoiceList from "./VoiceList";
 
 const MyVoices = () => {

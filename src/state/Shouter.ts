@@ -22,6 +22,6 @@ export default class Shouter {
   }
 
   shout(message: string): Voice {
-    return new Voice("", this, message);
+    return new Voice(Math.round(Math.random() * 999).toString(), this, message);
   }
 }
