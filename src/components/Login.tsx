@@ -21,7 +21,7 @@ const Login = (props: RouteComponentProps) => {
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    ctx.state.isLoggedIn = true;
+    if (ctx.setState) ctx.setState({ ...ctx.state, isLoggedIn: true });
 
     props.history.push("/myvoices");
   }

@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import useLogout from "../hooks/useLogout";
 
 const Navigation = () => {
+  const logout = useLogout();
   return (
     <div className="navigation">
       <ul className="navigation-list">
@@ -16,6 +18,11 @@ const Navigation = () => {
         </li>
         <li className="navigation-list-item">
           <Link to="/shouter">My Profile</Link>
+        </li>
+        <li className="navigation-list-item">
+          <button className="button" type="button" onClick={logout}>
+            Logout
+          </button>
         </li>
       </ul>
     </div>
