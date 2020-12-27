@@ -10,6 +10,7 @@ import Shout from "./components/Shout";
 import Navigation from "./components/Navigation";
 import Shouter from "./components/Shouter";
 import Login from "./components/Login";
+import SignUp from "./components/SignUp";
 
 function App() {
   const [state, setState] = useState(defaultState);
@@ -24,6 +25,7 @@ function App() {
           <Route path="/shout" component={Shout} />
           <Route path="/shouter" component={Shouter} />
           <Route path="/login" component={Login} />
+          <Route path="/signup" component={SignUp} />
         </BrowserRouter>
       </context.Provider>
     </div>

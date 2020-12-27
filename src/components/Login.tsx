@@ -1,5 +1,5 @@
 import React, { ChangeEvent, FormEvent, useContext, useState } from "react";
-import { RouteComponentProps } from "react-router-dom";
+import { Link, RouteComponentProps } from "react-router-dom";
 import context from "../context";
 
 interface Credentials {
@@ -58,6 +58,9 @@ const Login = (props: RouteComponentProps) => {
           Login now
         </button>
       </form>
+      <p className="login-signup-link">
+        or <Link to="/signup">Sign up</Link>
+      </p>
     </div>
   );
 };
