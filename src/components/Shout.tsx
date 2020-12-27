@@ -1,9 +1,12 @@
 import React, { ChangeEvent, FormEvent, useContext, useState } from "react";
 import { RouteComponentProps } from "react-router-dom";
 import context from "../context";
+import useAuth from "../hooks/useAuth";
 import "./Shout.css";
 
 const Shout = (props: RouteComponentProps) => {
+  useAuth();
+
   const ctx = useContext(context);
 
   const [message, setMessage] = useState("");

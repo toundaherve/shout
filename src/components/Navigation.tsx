@@ -1,7 +1,7 @@
 import React from "react";
-import { Link, RouteComponentProps } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const Navigation = (props: RouteComponentProps) => {
+const Navigation = () => {
   return (
     <div className="navigation">
       <ul className="navigation-list">
