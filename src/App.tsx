@@ -9,6 +9,7 @@ import MyVoices from "./components/MyVoices";
 import Shout from "./components/Shout";
 import Navigation from "./components/Navigation";
 import Shouter from "./components/Shouter";
+import Login from "./components/Login";
 
 function App() {
   const [state, setState] = useState(defaultState);
@@ -22,6 +23,7 @@ function App() {
           <Route path="/myvoices" component={MyVoices} />
           <Route path="/shout" component={Shout} />
           <Route path="/shouter" component={Shouter} />
+          <Route path="/login" component={Login} />
         </BrowserRouter>
       </context.Provider>
     </div>
