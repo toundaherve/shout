@@ -1,20 +1,16 @@
-import React from "react";
-import ShouterData from "../state/Shouter";
+import React, { useContext } from "react";
+import { RouteComponentProps } from "react-router-dom";
+import context from "../context";
 
-interface ShouterProps {
-  shouterData: ShouterData;
-}
-
-const Shouter = (props: ShouterProps) => {
+const Shouter = (props: RouteComponentProps) => {
+  const me = useContext(context).state.me;
   return (
     <div className="shouter">
       <ul className="shouter-details">
-        <li className="shouter-detail">Name: {props.shouterData.name} </li>
-        <li className="shouter-detail">
-          Location: {props.shouterData.location}
-        </li>
-        <li className="shouter-detail">Email: {props.shouterData.email} </li>
-        <li className="shouter-detail">Phone: {props.shouterData.phone} </li>
+        <li className="shouter-detail">Name: {me.name} </li>
+        <li className="shouter-detail">Location: {me.location}</li>
+        <li className="shouter-detail">Email: {me.email} </li>
+        <li className="shouter-detail">Phone: {me.phone} </li>
       </ul>
     </div>
   );
