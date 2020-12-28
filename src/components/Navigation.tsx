@@ -5,34 +5,34 @@ import useIsLoggedIn from "../hooks/useIsLoggedIn";
 const Navigation = () => {
   const isLoggedIn = useIsLoggedIn();
   return (
-    <ul className="row">
-      <li className="col">
+    <nav className="row">
+      <div className="col">
         <Link to="/">
           <div className="text-center">Home</div>
         </Link>
-      </li>
+      </div>
 
       {isLoggedIn && (
         <>
-          <li className="col">
+          <div className="col">
             <Link to="/shout">
               <div className="text-center">Shout</div>
             </Link>
-          </li>
-          <li className="col">
+          </div>
+          <div className="col">
             <Link to="/myvoices">
               <div className="text-center">My Voices</div>
             </Link>
-          </li>
+          </div>
 
-          <li className="col">
+          <div className="col">
             <Link to="/shouter">
               <div className="text-center">My Profile</div>
             </Link>
-          </li>
+          </div>
         </>
       )}
-    </ul>
+    </nav>
   );
 };
 
