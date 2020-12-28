@@ -11,7 +11,7 @@ import Navigation from "./components/Navigation";
 import Shouter from "./components/Shouter";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
-import Auth from "./components/Auth";
+import Header from "./components/Header";
 
 function App() {
   const [state, setState] = useState(defaultState);
@@ -19,7 +19,7 @@ function App() {
     <div className="App">
       <context.Provider value={{ state, setState }}>
         <BrowserRouter>
-          <Route path="/" component={Auth} />
+          <Route path="/" component={Header} />
           <Route path="/" component={Navigation} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={SignUp} />
