@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import context from "../context";
 import Voice from "../state/Voice";
 
