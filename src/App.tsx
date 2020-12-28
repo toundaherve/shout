@@ -11,7 +11,7 @@ import Navigation from "./components/Navigation";
 import Shouter from "./components/Shouter";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
-import UnauthenticatedNavigation from "./components/UnauthenticatedNavigation";
+import Auth from "./components/Auth";
 
 function App() {
   const [state, setState] = useState(defaultState);
@@ -19,19 +19,15 @@ function App() {
     <div className="App">
       <context.Provider value={{ state, setState }}>
         <BrowserRouter>
-          <Route
-            path="/"
-            component={
-              state.isLoggedIn ? Navigation : UnauthenticatedNavigation
-            }
-          />
+          <Route path="/" component={Auth} />
+          <Route path="/" component={Navigation} />
+          <Route path="/login" component={Login} />
+          <Route path="/signup" component={SignUp} />
           <Route path="/" exact component={Hear} />
           <Route path="/voice/:Id" component={Voice} />
           <Route path="/myvoices" component={MyVoices} />
           <Route path="/shout" component={Shout} />
           <Route path="/shouter" component={Shouter} />
-          <Route path="/login" component={Login} />
-          <Route path="/signup" component={SignUp} />
         </BrowserRouter>
       </context.Provider>
     </div>

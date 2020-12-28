@@ -24,6 +24,7 @@ const Hear = (props: RouteComponentProps) => {
 
   return (
     <div className="hear">
+      <h1 className="hear-title">Find what people want</h1>
       <form className="hear-form" onSubmit={handleHearVoice}>
         <input
           onChange={handleChangeVoiceMessage}

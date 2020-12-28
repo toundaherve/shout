@@ -1,29 +1,30 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import useLogout from "../hooks/useLogout";
+import useIsLoggedIn from "../hooks/useIsLoggedIn";
 
 const Navigation = () => {
-  const logout = useLogout();
+  const isLoggedIn = useIsLoggedIn();
   return (
     <div className="navigation">
       <ul className="navigation-list">
         <li className="navigation-list-item">
-          <Link to="/shout">Shout</Link>
+          <Link to="/">Home</Link>
         </li>
-        <li className="navigation-list-item">
-          <Link to="/myvoices">My Voices</Link>
-        </li>
-        <li className="navigation-list-item">
-          <Link to="/">All voices</Link>
-        </li>
-        <li className="navigation-list-item">
-          <Link to="/shouter">My Profile</Link>
-        </li>
-        <li className="navigation-list-item">
-          <button className="button" type="button" onClick={logout}>
-            Logout
-          </button>
-        </li>
+
+        {isLoggedIn && (
+          <>
+            <li className="navigation-list-item">
+              <Link to="/shout">Shout</Link>
+            </li>
+            <li className="navigation-list-item">
+              <Link to="/myvoices">My Voices</Link>
+            </li>
+
+            <li className="navigation-list-item">
+              <Link to="/shouter">My Profile</Link>
+            </li>
+          </>
+        )}
       </ul>
     </div>
   );
