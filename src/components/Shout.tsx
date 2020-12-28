@@ -1,11 +1,11 @@
 import React, { ChangeEvent, FormEvent, useContext, useState } from "react";
 import { RouteComponentProps } from "react-router-dom";
 import context from "../context";
-import useAuth from "../hooks/useAuth";
+import useAuthRequired from "../hooks/useAuthRequired";
 import "./Shout.css";
 
 const Shout = (props: RouteComponentProps) => {
-  useAuth();
+  useAuthRequired();
 
   const ctx = useContext(context);
 

@@ -1,12 +1,12 @@
-import React, { useContext } from "react";
-import context from "../context";
-import useAuth from "../hooks/useAuth";
+import React from "react";
+import useAuthRequired from "../hooks/useAuthRequired";
+import useMyvoices from "../hooks/useMyVoices";
 import VoiceList from "./VoiceList";
 
 const MyVoices = () => {
-  useAuth();
+  useAuthRequired();
 
-  const myVoices = useContext(context).state.myVoices;
+  const myVoices = useMyvoices();
   return (
     <div className="my-voices">
       <h1 className="my-voices-title">My Voices</h1>

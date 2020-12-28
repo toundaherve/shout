@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { RouteComponentProps } from "react-router-dom";
 import context from "../context";
-import useAuth from "../hooks/useAuth";
+import useAuthRequired from "../hooks/useAuthRequired";
 
 const Shouter = (props: RouteComponentProps) => {
-  useAuth();
+  useAuthRequired();
 
   const me = useContext(context).state.me;
   return (

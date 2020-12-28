@@ -1,14 +1,14 @@
-import React, { useState, ChangeEvent, useContext, FormEvent } from "react";
+import React, { useState, ChangeEvent, FormEvent } from "react";
 import { RouteComponentProps } from "react-router-dom";
-import context from "../context";
+import useVoices from "../hooks/useVoices";
 import { hearParticularVoice } from "../state/Voice";
 import VoiceList from "./VoiceList";
 
 const Hear = (props: RouteComponentProps) => {
-  const ctx = useContext(context);
+  const voices = useVoices();
 
   const [voiceMessage, setVoiceMessage] = useState("");
-  const [heardVoices, setHeardVoices] = useState(ctx.state.voices);
+  const [heardVoices, setHeardVoices] = useState(voices);
 
   function handleChangeVoiceMessage(e: ChangeEvent<HTMLInputElement>) {
     setVoiceMessage(e.target.value);
@@ -17,7 +17,7 @@ const Hear = (props: RouteComponentProps) => {
   function handleHearVoice(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    const resultVoices = hearParticularVoice(ctx.state.voices, voiceMessage);
+    const resultVoices = hearParticularVoice(voices, voiceMessage);
 
     setHeardVoices(resultVoices);
   }

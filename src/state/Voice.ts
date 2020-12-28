@@ -17,7 +17,7 @@ export default class Voice {
     email: string,
     message: string
   ): boolean {
-    console.log(`${name} contacted shouter ${this.shouter.name} via Email ...`);
+    alert(`${name} contacted shouter ${this.shouter.name} via Email ...`);
     return true;
   }
 
