@@ -16,7 +16,7 @@ import Header from "./components/Header";
 function App() {
   const [state, setState] = useState(defaultState);
   return (
-    <div className="App">
+    <div className="App container">
       <context.Provider value={{ state, setState }}>
         <BrowserRouter>
           <Route path="/" component={Header} />
