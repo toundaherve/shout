@@ -34,8 +34,8 @@ const Shout = (props: RouteComponentProps) => {
   }
 
   return (
-    <div className="shout">
-      <h1 className="shout-title">Say what you want</h1>
+    <div>
+      <h1 className="text-center">Say what you want</h1>
       <form className="shout-form" onSubmit={handleShout}>
         <label className="shout-message-label">Message: </label>
         <textarea

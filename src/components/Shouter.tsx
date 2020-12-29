@@ -8,7 +8,8 @@ const Shouter = (props: RouteComponentProps) => {
 
   const me = useContext(context).state.me;
   return (
-    <div className="shouter">
+    <div>
+      <h1 className="text-center">My Profile</h1>
       <ul className="shouter-details">
         <li className="shouter-detail">Name: {me.name} </li>
         <li className="shouter-detail">Location: {me.location}</li>

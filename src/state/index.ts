@@ -39,6 +39,12 @@ export const defaultState: State = {
     new Voice("3824", herve, "iphone 10X, color black, 250GB, $500"),
     new Voice("3524", jeanyves, "car BMW, color red, $15.000, year: 2011"),
     new Voice("3924", andre, "Nike air, color black, 2018, $500"),
+    new Voice("5524", jeanyves, "car BMW, color red, $15.000, year: 2011"),
+    new Voice("0524", jeanyves, "car BMW, color red, $15.000, year: 2011"),
+    new Voice("7524", jeanyves, "car BMW, color red, $15.000, year: 2011"),
+    new Voice("1524", jeanyves, "car BMW, color red, $15.000, year: 2011"),
+    new Voice("3724", jeanyves, "car BMW, color red, $15.000, year: 2011"),
+    new Voice("3024", jeanyves, "car BMW, color red, $15.000, year: 2011"),
   ],
   isLoggedIn: false,
 };

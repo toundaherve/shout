@@ -23,21 +23,30 @@ const Hear = (props: RouteComponentProps) => {
   }
 
   return (
-    <div className="hear">
-      <h1 className="hear-title">Find what people want</h1>
-      <form className="hear-form" onSubmit={handleHearVoice}>
-        <input
-          onChange={handleChangeVoiceMessage}
-          value={voiceMessage}
-          type="text"
-          placeholder="Type voice"
-          className="hear-input"
-        />
-        <button className="hear-submission" type="submit">
-          Hear now !
-        </button>
-      </form>
-      <VoiceList voiceListData={heardVoices} />
+    <div className="row">
+      <div className="col-12">
+        <h1 className="text-center">Find what people want</h1>
+        <form
+          className="d-flex justify-content-center"
+          onSubmit={handleHearVoice}
+        >
+          <input
+            onChange={handleChangeVoiceMessage}
+            value={voiceMessage}
+            type="text"
+            placeholder="Type voice"
+            className="hear-input"
+          />
+          <button className="hear-submission" type="submit">
+            Hear now !
+          </button>
+        </form>
+      </div>
+
+      <div className="col-12">
+        <h2 className="text-left">Results</h2>
+        <VoiceList voiceListData={heardVoices} />
+      </div>
     </div>
   );
 };

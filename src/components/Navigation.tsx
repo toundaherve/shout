@@ -4,6 +4,7 @@ import useIsLoggedIn from "../hooks/useIsLoggedIn";
 
 const Navigation = () => {
   const isLoggedIn = useIsLoggedIn();
+
   return (
     <nav className="row">
       <div className="col">

@@ -8,8 +8,8 @@ const MyVoices = () => {
 
   const myVoices = useMyvoices();
   return (
-    <div className="my-voices">
-      <h1 className="my-voices-title">My Voices</h1>
+    <div className="">
+      <h1 className="text-center">My Voices</h1>
       <VoiceList voiceListData={myVoices} />
     </div>
   );

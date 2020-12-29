@@ -8,9 +8,9 @@ interface VoiceListProps {
 
 const VoiceList = (props: VoiceListProps) => {
   return (
-    <ul className="voices-list">
+    <div className="row">
       {props.voiceListData.map((voice, idx) => (
-        <li className="voice-item" key={idx}>
+        <div className="col-6 col-md-3" key={idx}>
           <Link to={`/voice/${voice.Id}`}>
             <div className="voice">
               <div className="voice-message">{voice.message}</div>
@@ -19,9 +19,9 @@ const VoiceList = (props: VoiceListProps) => {
               </div>
             </div>
           </Link>
-        </li>
+        </div>
       ))}
-    </ul>
+    </div>
   );
 };
 
