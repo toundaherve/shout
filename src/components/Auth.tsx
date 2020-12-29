@@ -11,13 +11,13 @@ const Auth = () => {
       {!isLoggedIn && (
         <div className="col">
           <Link to="/login">
-            <button type="button" className="button">
+            <button type="button" className="btn btn-outline-primary">
               Login
             </button>
           </Link>
 
           <Link to="/signup">
-            <button type="button" className="button">
+            <button type="button" className="btn btn-outline-primary ms-2">
               Signup
             </button>
           </Link>
@@ -26,7 +26,11 @@ const Auth = () => {
 
       {isLoggedIn && (
         <div className="col">
-          <button type="button" className="button" onClick={logout}>
+          <button
+            type="button"
+            className="btn btn-outline-primary"
+            onClick={logout}
+          >
             Logout
           </button>
         </div>
