@@ -27,11 +27,11 @@ const Login = (props: RouteComponentProps) => {
   }
 
   return (
-    <div className="login">
-      <h1 className="login-title">Login</h1>
-      <form className="login-form" onSubmit={handleSubmit}>
+    <div className="row  justify-content-center">
+      <h1 className="col-12 text-center">Login</h1>
+      <form className="col-6" onSubmit={handleSubmit}>
         <div className="login-field">
-          <label htmlFor="username" className="login-field-label">
+          <label htmlFor="username" className="d-block">
             Username:{" "}
           </label>
           <input
@@ -40,10 +40,11 @@ const Login = (props: RouteComponentProps) => {
             id="username"
             value={credentials.username}
             onChange={handleChange}
+            className="w-100"
           />
         </div>
         <div className="login-field">
-          <label htmlFor="password" className="login-field-label">
+          <label htmlFor="password" className="d-block">
             Password:{" "}
           </label>
           <input
@@ -52,13 +53,14 @@ const Login = (props: RouteComponentProps) => {
             id="password"
             value={credentials.password}
             onChange={handleChange}
+            className="w-100"
           />
         </div>
         <button className="login-submission" type="submit">
           Login now
         </button>
       </form>
-      <p className="login-signup-link">
+      <p className="col-12 text-center">
         or <Link to="/signup">Sign up</Link>
       </p>
     </div>
