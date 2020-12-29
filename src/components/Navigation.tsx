@@ -1,39 +1,66 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import useIsLoggedIn from "../hooks/useIsLoggedIn";
+import useLogout from "../hooks/useLogout";
 
 const Navigation = () => {
   const isLoggedIn = useIsLoggedIn();
-
+  const logout = useLogout();
   return (
-    <nav className="row">
-      <div className="col">
-        <Link to="/">
-          <div className="text-center">Home</div>
-        </Link>
-      </div>
-
+    <ul className="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
       {isLoggedIn && (
         <>
-          <div className="col">
-            <Link to="/shout">
-              <div className="text-center">Shout</div>
+          <li className="nav-item active">
+            <Link to="/shout" className="nav-link" aria-current="page">
+              Shout
             </Link>
-          </div>
-          <div className="col">
-            <Link to="/myvoices">
-              <div className="text-center">My Voices</div>
+          </li>
+          <li className="nav-item">
+            <Link to="/myvoices" className="nav-link" aria-current="page">
+              My Voices
             </Link>
-          </div>
-
-          <div className="col">
-            <Link to="/shouter">
-              <div className="text-center">My Profile</div>
+          </li>
+          <li className="nav-item">
+            <Link to="/shouter" className="nav-link" aria-current="page">
+              My Profile
             </Link>
-          </div>
+          </li>
         </>
       )}
-    </nav>
+
+      {!isLoggedIn && (
+        <>
+          <li className="nav-item">
+            <Link to="/login" className="nav-link" aria-current="page">
+              <button type="button" className="btn btn-outline-primary">
+                Login
+              </button>
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/signup" className="nav-link" aria-current="page">
+              <button type="button" className="btn btn-outline-primary">
+                Signup
+              </button>
+            </Link>
+          </li>
+        </>
+      )}
+
+      {isLoggedIn && (
+        <li className="nav-item">
+          <Link to="/login" className="nav-link" aria-current="page">
+            <button
+              type="button"
+              className="btn btn-outline-primary"
+              onClick={logout}
+            >
+              Logout
+            </button>
+          </Link>
+        </li>
+      )}
+    </ul>
   );
 };
 

@@ -1,27 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Auth from "./Auth";
+import NavigationBar from "./NavigationBar";
 
 const Header = () => {
   return (
-    <header className="row align-items-center">
-      <div className="col-12 col-md-6">
-        <div className="row row-cols-auto justify-content-center justify-content-md-start ">
-          <div>
-            <Link to="/">
-              <span className="text-center h1">
-                <em>Shout!!</em>
-              </span>
-            </Link>
-          </div>
-        </div>
+    <header className="row row-cols-auto align-items-center justify-content-between">
+      <div>
+        <Link to="/">
+          <span className="text-center h1">
+            <em>Shout!!</em>
+          </span>
+        </Link>
       </div>
-      <div className="col-12 col-md-6">
-        <div className="row row-cols-auto justify-content-center justify-content-md-end ">
-          <div>
-            <Auth />
-          </div>
-        </div>
+      <div>
+        <NavigationBar />
       </div>
     </header>
   );
