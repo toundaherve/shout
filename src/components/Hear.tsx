@@ -23,7 +23,7 @@ const Hear = (props: RouteComponentProps) => {
   }
 
   return (
-    <div className="row py-5 gy-4 gy-md-5">
+    <div className="row py-5 gy-5">
       <div className="col-12">
         <h1 className="text-center text-light mb-3 mb-md-4">
           Find what people want{" "}
