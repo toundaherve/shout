@@ -33,19 +33,28 @@ const Shout = (props: RouteComponentProps) => {
   }
 
   return (
-    <div className="row rows-cols-auto justify-content-center">
-      <h1 className="col-12 text-center">Say what you want</h1>
-      <div className="col-8">
-        <form className="" onSubmit={handleShout}>
-          <label className="d-block">Message: </label>
-          <textarea
-            className="d-block w-100"
-            name="message"
-            onChange={handleChange}
-            rows={10}
-            value={message}
-          />
-          <button className="shout-submission">Shout</button>
+    <div className="row justify-content-center py-5">
+      <div className="col-12 col-md-8">
+        <h1 className="text-light mb-4">Need an item</h1>
+        <form action="" className="form" onSubmit={handleShout}>
+          <div className="mb-3">
+            <label
+              htmlFor="exampleFormControlTextarea1"
+              className="form-label text-light"
+            >
+              Describe it
+            </label>
+            <textarea
+              className="form-control"
+              id="exampleFormControlTextarea1"
+              rows={5}
+              onChange={handleChange}
+              value={message}
+            ></textarea>
+          </div>
+          <button className="btn btn-primary" type="submit">
+            Submit
+          </button>
         </form>
       </div>
     </div>
