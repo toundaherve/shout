@@ -19,7 +19,7 @@ function App() {
     <context.Provider value={{ state, setState }}>
       <BrowserRouter>
         <div className="App container">
-          <div className="row gy-5">
+          <div className="row gy-2">
             {/*---------------------------------------------------------------  Header */}
             <div className="col-12 bg-dark">
               <Route path="/" component={Modal} />
@@ -28,7 +28,7 @@ function App() {
             {/*------------------------------------------------------------------------*/}
 
             {/*--------------------------------------------------------------- Content */}
-            <div className="col-12 bg-dark">
+            <div className="col-12 bg-dark min-vh-100">
               <Route path="/login" component={Login} />
               <Route path="/signup" component={SignUp} />
               <Route path="/" exact component={Hear} />
