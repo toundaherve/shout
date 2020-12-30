@@ -7,7 +7,7 @@ const Navigation = () => {
   const isLoggedIn = useIsLoggedIn();
   const logout = useLogout();
   return (
-    <ul className="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
+    <ul className="navbar-nav align-items-center">
       {isLoggedIn && (
         <>
           <li className="nav-item active">

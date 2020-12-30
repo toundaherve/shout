@@ -16,21 +16,36 @@ import Modal from "./components/Modal";
 function App() {
   const [state, setState] = useState(defaultState);
   return (
-    <div className="App container">
-      <context.Provider value={{ state, setState }}>
-        <BrowserRouter>
-          <Route path="/" component={Modal} />
-          <Route path="/" component={Header} />
-          <Route path="/login" component={Login} />
-          <Route path="/signup" component={SignUp} />
-          <Route path="/" exact component={Hear} />
-          <Route path="/voice/:Id" component={Voice} />
-          <Route path="/myvoices" component={MyVoices} />
-          <Route path="/shout" component={Shout} />
-          <Route path="/shouter" component={Shouter} />
-        </BrowserRouter>
-      </context.Provider>
-    </div>
+    <context.Provider value={{ state, setState }}>
+      <BrowserRouter>
+        <div className="App container">
+          <div className="row gy-5">
+            {/*---------------------------------------------------------------  Header */}
+            <div className="col-12 bg-dark">
+              <Route path="/" component={Modal} />
+              <Route path="/" component={Header} />
+            </div>
+            {/*------------------------------------------------------------------------*/}
+
+            {/*--------------------------------------------------------------- Content */}
+            <div className="col-12 bg-dark">
+              <Route path="/login" component={Login} />
+              <Route path="/signup" component={SignUp} />
+              <Route path="/" exact component={Hear} />
+              <Route path="/voice/:Id" component={Voice} />
+              <Route path="/myvoices" component={MyVoices} />
+              <Route path="/shout" component={Shout} />
+              <Route path="/shouter" component={Shouter} />
+            </div>
+            {/*------------------------------------------------------------------------ */}
+
+            {/*----------------------------------------------------------------- Footer */}
+            <div className="col-12 bg-dark p-4">footer</div>
+            {/*-------------------------------------------------------------------------*/}
+          </div>
+        </div>
+      </BrowserRouter>
+    </context.Provider>
   );
 }
 
