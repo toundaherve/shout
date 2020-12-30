@@ -23,16 +23,16 @@ const Hear = (props: RouteComponentProps) => {
   }
 
   return (
-    <div className="row py-5 gy-5">
+    <div className="row py-5 gy-4 gy-md-5 ">
       <div className="col-12">
         <h1 className="text-center text-light mb-3 mb-md-4">
-          Find what people want{" "}
+          Find what people want
         </h1>
         <form className="d-flex" onSubmit={handleHearVoice}>
           <input
             onChange={handleChangeVoiceMessage}
             value={voiceMessage}
-            className="w-100 me-2 d-block form-control"
+            className="w-100 me-2 me-md-3 d-block form-control"
             type="search"
             placeholder="Search"
             aria-label="Search"

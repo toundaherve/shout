@@ -3,11 +3,11 @@ import { Link, RouteComponentProps } from "react-router-dom";
 import context from "../context";
 
 interface Credentials {
-  username: string;
+  email: string;
   password: string;
 }
 
-const defautlCredentials: Credentials = { username: "", password: "" };
+const defautlCredentials: Credentials = { email: "", password: "" };
 
 const Login = (props: RouteComponentProps) => {
   const ctx = useContext(context);
@@ -27,42 +27,57 @@ const Login = (props: RouteComponentProps) => {
   }
 
   return (
-    <div className="row  justify-content-center">
-      <h1 className="col-12 text-center">Login</h1>
-      <form className="col-6" onSubmit={handleSubmit}>
-        <div className="login-field">
-          <label htmlFor="username" className="d-block">
-            Username:{" "}
+    <div className="row  justify-content-center py-5">
+      <h1 className="col-12 text-center text-light mb-4">Login</h1>
+
+      <form className="col-12 col-md-6" onSubmit={handleSubmit}>
+        <div className="mb-3">
+          <label htmlFor="exampleInputEmail1" className="form-label text-light">
+            Email address
           </label>
           <input
-            type="text"
-            name="username"
-            id="username"
-            value={credentials.username}
+            type="email"
+            name="email"
+            className="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            value={credentials.email}
             onChange={handleChange}
-            className="w-100"
           />
+          <div id="emailHelp" className="form-text">
+            We'll never share your email with anyone else.
+          </div>
         </div>
-        <div className="login-field">
-          <label htmlFor="password" className="d-block">
-            Password:{" "}
+        <div className="mb-3">
+          <label
+            htmlFor="exampleInputPassword1"
+            className="form-label text-light"
+          >
+            Password
           </label>
           <input
             type="password"
             name="password"
-            id="password"
+            className="form-control"
+            id="exampleInputPassword1"
             value={credentials.password}
             onChange={handleChange}
-            className="w-100"
           />
         </div>
-        <button className="login-submission" type="submit">
-          Login now
+        <div className="mb-3 form-check">
+          <input
+            type="checkbox"
+            className="form-check-input"
+            id="exampleCheck1"
+          />
+          <label className="form-check-label" htmlFor="exampleCheck1">
+            Check me out
+          </label>
+        </div>
+        <button type="submit" className="btn btn-primary">
+          Submit
         </button>
       </form>
-      <p className="col-12 text-center">
-        or <Link to="/signup">Sign up</Link>
-      </p>
     </div>
   );
 };

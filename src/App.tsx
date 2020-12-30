@@ -19,7 +19,7 @@ function App() {
     <context.Provider value={{ state, setState }}>
       <BrowserRouter>
         <div className="App container">
-          <div className="row gy-4">
+          <div className="row gy-5">
             {/*---------------------------------------------------------------  Header */}
             <div className="col-12 bg-dark">
               <Route path="/" component={Modal} />
