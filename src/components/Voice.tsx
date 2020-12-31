@@ -1,5 +1,5 @@
 import React, { FormEvent } from "react";
-import { RouteComponentProps } from "react-router-dom";
+import { Link, RouteComponentProps } from "react-router-dom";
 import useIsLoggedIn from "../hooks/useIsLoggedIn";
 import useUpdateVoice from "../hooks/useUpdateVoice";
 import useVoice from "../hooks/useVoice";
@@ -35,107 +35,50 @@ const Voice = (props: RouteComponentProps<{ Id: string }>) => {
   }
 
   return (
-    <div className="row py-5 justify-content-center gy-2">
-      <div className="col-12 col-md-8  bg-secondary py-3">
-        <h1 className="mb-2">{voiceData.message}</h1>
-
-        <ul className="list-unstyled">
-          <li className="mb-1">
-            <strong>Status: </strong>
-            {`${voiceData.haveBeenHeard ? "Heard" : "Not Heard"}`}
-          </li>
-          <li className="mb-1">
-            <strong>Name: </strong>
-            {voiceData.shouter.name}
-          </li>
-          <li className="mb-1">
-            <strong>Location: </strong>
-            {voiceData.shouter.location}
-          </li>
-          <li className="mb-1">
-            <strong>Email:</strong> {voiceData.shouter.email}
-          </li>
-          <li className="mb-1">
-            <strong>Phone:</strong> {voiceData.shouter.phone}
-          </li>
-        </ul>
+    <div className="row py-5 justify-content-center gy-4 text-light">
+      <div className="col-12">
+        <h1 className="text-light">VoiceID n{voiceData.Id}</h1>
       </div>
 
-      <div className="col-12 col-md-8 bg-secondary">
-        {!isLoggedIn && (
-          <div className="voice-contact">
-            <form
-              action=""
-              className="form py-4  bg-secondary"
-              onSubmit={handleSubmit}
-            >
-              <legend>Contact this person</legend>
-              <div className="mb-3">
-                <label
-                  htmlFor="exampleFormControlInput1"
-                  className="form-label"
-                >
-                  Your Email address
-                </label>
-                <input
-                  type="email"
-                  className="form-control"
-                  id="exampleFormControlInput1"
-                  placeholder="name@example.com"
-                />
+      <div className="col-12">
+        <div className="row g-2 justify-content-between">
+          <div className="col-12 col-md bg-secondary py-3">
+            <div className="d-flex flex-column justify-content-between h-100">
+              <div>
+                <h2 className="mb-2">Voice</h2>
+                <p className="mb-3">{voiceData.message}</p>
               </div>
-              <div className="mb-3">
-                <label
-                  htmlFor="exampleFormControlInputName"
-                  className="form-label"
-                >
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="exampleFormControlInputName"
-                  placeholder="Type your name"
-                />
-              </div>
-              <div className="mb-3">
-                <label
-                  htmlFor="exampleFormControlTextarea1"
-                  className="form-label text-light"
-                >
-                  Message
-                </label>
-                <textarea
-                  className="form-control"
-                  id="exampleFormControlTextarea1"
-                  rows={5}
-                ></textarea>
-              </div>
-              <button className="btn btn-primary" type="submit">
-                Send
-              </button>
-            </form>
+              {isLoggedIn && (
+                <div>
+                  <button type="button" className="btn btn-primary me-2">
+                    Modify
+                  </button>
+                  <button type="button" className="btn btn-danger">
+                    Delete
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
-        )}
 
-        {isLoggedIn && (
-          <div className="d-grid d-flex d-md-flex gap-2">
-            <button
-              className="btn btn-success flex-grow-1"
-              type="button"
-              onClick={handleMarkAsHeard}
-            >
-              Mark as hear
-            </button>
-            <button
-              className="btn btn-danger flex-grow-1"
-              type="button"
-              onClick={handleMarkAsHeard}
-            >
-              Unmark as hear
-            </button>
+          <div className="col-12 col-md bg-secondary py-3">
+            <h2 className="mb-2">Owner</h2>
+            <p className="mb-1">Name: {voiceData.shouter.name}</p>
+            <p className="mb-1">Email: {voiceData.shouter.email}</p>
+            <p className="mb-1">Location: {voiceData.shouter.location}</p>
+            <p className="mb-3">Phone: {voiceData.shouter.phone}</p>
+            <div>
+              <button type="button" className="btn btn-primary me-2">
+                Send message
+              </button>
+              {isLoggedIn && (
+                <Link to="/shouter" type="button" className="btn btn-primary">
+                  Edit profile
+                </Link>
+              )}
+            </div>
           </div>
-        )}
+        </div>
       </div>
     </div>
   );
