@@ -41,12 +41,13 @@ const Shout = (props: RouteComponentProps) => {
           className="form py-4 px-3 bg-secondary"
           onSubmit={handleShout}
         >
+          <legend>Describe what you need</legend>
           <div className="mb-3">
             <label
               htmlFor="exampleFormControlTextarea1"
               className="form-label text-light"
             >
-              Describe it
+              Description
             </label>
             <textarea
               className="form-control"

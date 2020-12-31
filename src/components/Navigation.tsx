@@ -25,6 +25,11 @@ const Navigation = () => {
               My Profile
             </Link>
           </li>
+          <li className="nav-item">
+            <Link to="#" className="nav-link" aria-current="page">
+              Settings
+            </Link>
+          </li>
         </>
       )}
 
