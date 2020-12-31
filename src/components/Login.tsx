@@ -27,10 +27,10 @@ const Login = (props: RouteComponentProps) => {
   }
 
   return (
-    <div className="row  justify-content-center py-5">
-      <h1 className="col-12 text-center text-light mb-4">Login</h1>
+    <div className="row  justify-content-center">
+      <h1 className="col-12 text-center text-light pb-4 pt-5 ">Login</h1>
 
-      <form className="col-12 col-md-6" onSubmit={handleSubmit}>
+      <form className="col-12 col-md-6 py-4 bg-info" onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label text-light">
             Email address

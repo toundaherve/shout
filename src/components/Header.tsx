@@ -4,7 +4,7 @@ import NavigationBar from "./NavigationBar";
 
 const Header = () => {
   return (
-    <header className="row row-cols-auto align-items-end justify-content-between py-3">
+    <header className="row row-cols-auto align-items-center justify-content-between">
       <div>
         <Link to="/">
           <span className="text-center h1">

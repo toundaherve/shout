@@ -33,10 +33,14 @@ const Shout = (props: RouteComponentProps) => {
   }
 
   return (
-    <div className="row justify-content-center py-5">
+    <div className="row justify-content-center">
       <div className="col-12 col-md-8">
-        <h1 className="text-light mb-4">Need an item</h1>
-        <form action="" className="form" onSubmit={handleShout}>
+        <h1 className="text-light mt-5 mb-4">Need an item</h1>
+        <form
+          action=""
+          className="form py-4 px-3 bg-secondary"
+          onSubmit={handleShout}
+        >
           <div className="mb-3">
             <label
               htmlFor="exampleFormControlTextarea1"

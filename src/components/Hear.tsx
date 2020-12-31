@@ -23,8 +23,8 @@ const Hear = (props: RouteComponentProps) => {
   }
 
   return (
-    <div className="row py-5 gy-4 gy-md-5 ">
-      <div className="col-12">
+    <div className="row">
+      <div className="col-12 py-4 py-md-5">
         <h1 className="text-center text-light mb-3 mb-md-4">
           Find what people want
         </h1>
@@ -43,7 +43,7 @@ const Hear = (props: RouteComponentProps) => {
         </form>
       </div>
 
-      <div classNamejustify-content-center="col-12">
+      <div className="justify-content-center col-12 py-4 bg-secondary">
         <h2 className="text-left text-light mb-3">Results</h2>
         <VoiceList voiceListData={heardVoices} />
       </div>
