@@ -1,5 +1,5 @@
 import React, { ChangeEvent, FormEvent, useContext, useState } from "react";
-import { Link, RouteComponentProps } from "react-router-dom";
+import { RouteComponentProps } from "react-router-dom";
 import context from "../context";
 
 interface Credentials {
