@@ -48,7 +48,6 @@ const SignUp = (props: ProfileData) => {
               id="exampleFormControlInput1"
               placeholder="name@example.com"
               value={profile.email}
-              disabled
               onChange={handleChange}
             />
           </div>

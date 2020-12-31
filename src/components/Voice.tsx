@@ -35,60 +35,108 @@ const Voice = (props: RouteComponentProps<{ Id: string }>) => {
   }
 
   return (
-    <div className="voice">
-      <div className="voice-message">{voiceData.message}</div>
-      <div className="voice-status">
-        Status: {`${voiceData.haveBeenHeard ? "Heard" : "Not Heard"}`}
+    <div className="row py-5 justify-content-center gy-2">
+      <div className="col-12 col-md-8  bg-secondary py-3">
+        <h1 className="mb-2">{voiceData.message}</h1>
+
+        <ul className="list-unstyled">
+          <li className="mb-1">
+            <strong>Status: </strong>
+            {`${voiceData.haveBeenHeard ? "Heard" : "Not Heard"}`}
+          </li>
+          <li className="mb-1">
+            <strong>Name: </strong>
+            {voiceData.shouter.name}
+          </li>
+          <li className="mb-1">
+            <strong>Location: </strong>
+            {voiceData.shouter.location}
+          </li>
+          <li className="mb-1">
+            <strong>Email:</strong> {voiceData.shouter.email}
+          </li>
+          <li className="mb-1">
+            <strong>Phone:</strong> {voiceData.shouter.phone}
+          </li>
+        </ul>
       </div>
 
-      <ul className="voice-shouter">
-        <li className="voice-shouter-detail">Name: {voiceData.shouter.name}</li>
-        <li className="voice-shouter-detail">
-          Location: {voiceData.shouter.location}
-        </li>
-        <li className="voice-shouter-detail">
-          Email: {voiceData.shouter.email}
-        </li>
-        <li className="voice-shouter-detail">
-          Phone: {voiceData.shouter.phone}
-        </li>
-      </ul>
+      <div className="col-12 col-md-8 bg-secondary">
+        {!isLoggedIn && (
+          <div className="voice-contact">
+            <form
+              action=""
+              className="form py-4  bg-secondary"
+              onSubmit={handleSubmit}
+            >
+              <legend>Contact this person</legend>
+              <div className="mb-3">
+                <label
+                  htmlFor="exampleFormControlInput1"
+                  className="form-label"
+                >
+                  Your Email address
+                </label>
+                <input
+                  type="email"
+                  className="form-control"
+                  id="exampleFormControlInput1"
+                  placeholder="name@example.com"
+                />
+              </div>
+              <div className="mb-3">
+                <label
+                  htmlFor="exampleFormControlInputName"
+                  className="form-label"
+                >
+                  Your Name
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="exampleFormControlInputName"
+                  placeholder="Type your name"
+                />
+              </div>
+              <div className="mb-3">
+                <label
+                  htmlFor="exampleFormControlTextarea1"
+                  className="form-label text-light"
+                >
+                  Message
+                </label>
+                <textarea
+                  className="form-control"
+                  id="exampleFormControlTextarea1"
+                  rows={5}
+                ></textarea>
+              </div>
+              <button className="btn btn-primary" type="submit">
+                Send
+              </button>
+            </form>
+          </div>
+        )}
 
-      {!isLoggedIn && (
-        <div className="voice-contact">
-          <h2 className="voice-contact-title">Contact this person</h2>
-
-          <form className="form" onSubmit={handleSubmit}>
-            <div className="form-field">
-              <label className="form-label">Your Name:</label>
-              <input className="form-input" type="text" />
-            </div>
-            <div className="form-field">
-              <label className="form-label">Your Email:</label>
-              <input className="form-input" type="email" />
-            </div>
-            <div className="form-field">
-              <label className="form-label">Message:</label>
-              <textarea
-                className="form-textarea"
-                cols={20}
-                rows={10}
-              ></textarea>
-            </div>
-            <button className="button" type="submit">
-              Send
+        {isLoggedIn && (
+          <div className="d-grid d-flex d-md-flex gap-2">
+            <button
+              className="btn btn-success flex-grow-1"
+              type="button"
+              onClick={handleMarkAsHeard}
+            >
+              Mark as hear
             </button>
-          </form>
-        </div>
-      )}
-
-      {isLoggedIn && (
-        <div className="voice-mark">
-          <button className="button" type="button" onClick={handleMarkAsHeard}>
-            Mark as hear
-          </button>
-        </div>
-      )}
+            <button
+              className="btn btn-danger flex-grow-1"
+              type="button"
+              onClick={handleMarkAsHeard}
+            >
+              Unmark as hear
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
