@@ -48,7 +48,7 @@ function UnifiedHeader() {
             <span className="d-block mb-3"></span>
           </div>
           {/* TODO: Overflow Not Working - Check with lots of filters - Fix overflow-x: auto|hidden*/}
-          <div className="d-flex flex-nowrap overflow-auto">
+          <div className="d-flex flex-nowrap ">
             {mockFilters.map((filter, idx) => (
               <div className="d-flex px-1 py-2" key={idx}>
                 <Filter name={filter} options={["Electronics", "Fashion"]} />
