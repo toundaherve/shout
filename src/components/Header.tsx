@@ -2,30 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { MdMenu } from "react-icons/md";
 
-const SearchForm = () => (
-  <form className="d-flex flex-grow-1">
-    <input
-      className="form-control me-2"
-      type="search"
-      placeholder="Search"
-      aria-label="Search"
-    />
-    <button className="btn btn-outline-success" type="submit">
-      Search
-    </button>
-  </form>
-);
-
-export const Logo = () => (
-  <Link to="/">
-    <span className="h2">SHOUT</span>
-  </Link>
-);
-
 const Header = () => {
   return (
     <div className="sticky-top">
-      <div className="header-content">
+      <div className="header-content bg-white">
         <div className="container-sm">
           <div className="row">
             <div className="col">
@@ -77,5 +57,29 @@ const Header = () => {
     </div>
   );
 };
+
+function SearchForm() {
+  return (
+    <form className="d-flex flex-grow-1">
+      <input
+        className="form-control me-2"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+      <button className="btn btn-outline-success" type="submit">
+        Search
+      </button>
+    </form>
+  );
+}
+
+export function Logo() {
+  return (
+    <Link to="/">
+      <span className="h2">SHOUT</span>
+    </Link>
+  );
+}
 
 export default Header;
