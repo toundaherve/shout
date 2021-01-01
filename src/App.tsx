@@ -12,6 +12,8 @@ import Shouter from "./components/Shouter";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Auth from "./components/Auth";
+import Header from "./components/Header";
+import NavigationModal from "./components/NavigationModal";
 
 function App() {
   const [state, setState] = useState(defaultState);
@@ -19,7 +21,11 @@ function App() {
     <div className="App">
       <context.Provider value={{ state, setState }}>
         <BrowserRouter>
-          <Route path="/" component={Auth} />
+          <div className="min-vh-100">
+            <Route path="/" component={Header} />
+          </div>
+
+          {/* <Route path="/" component={Auth} />
           <Route path="/" component={Navigation} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={SignUp} />
@@ -27,7 +33,10 @@ function App() {
           <Route path="/voice/:Id" component={Voice} />
           <Route path="/myvoices" component={MyVoices} />
           <Route path="/shout" component={Shout} />
-          <Route path="/shouter" component={Shouter} />
+          <Route path="/shouter" component={Shouter} /> */}
+          <Route path="/">
+            <NavigationModal />
+          </Route>
         </BrowserRouter>
       </context.Provider>
     </div>
