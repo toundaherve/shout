@@ -34,12 +34,12 @@ const Header = () => {
                   <div className="d-flex align-items-center flex-nowrap">
                     <div className="d-flex flex-nowrap flex-grow-1 justify-content-start">
                       <Logo />
-                      <span className="d-block me-3"></span>
+                      <span className="d-block me-3" />
                       <SearchForm />
                     </div>
 
                     <div className="d-flex justify-content-end flex-nowrap">
-                      <span className="d-block me-3"></span>
+                      <span className="d-block me-3" />
                       <Link
                         to="/login"
                         type="button"
@@ -55,7 +55,7 @@ const Header = () => {
                   <div className="d-flex flex-wrap justify-content-center align-items-center w-100">
                     <Logo />
                   </div>
-                  <span className="d-block mb-3"></span>
+                  <span className="d-block mb-3" />
                   <div className="d-flex justify-content-between align-items-center flex-nowrap">
                     <MdMenu
                       size={38}
@@ -63,7 +63,7 @@ const Header = () => {
                       data-bs-toggle="modal"
                       data-bs-target="#menuModal"
                     />
-                    <span className="d-block me-2"></span>
+                    <span className="d-block me-2" />
                     <div className="flex-grow-1 ">
                       <SearchForm />
                     </div>
