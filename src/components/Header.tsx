@@ -112,7 +112,7 @@ function MenuToggler() {
       size={38}
       className="me-2"
       data-bs-toggle="modal"
-      data-bs-target="#menuModal"
+      data-bs-target="#navigationModal"
     />
   );
 }

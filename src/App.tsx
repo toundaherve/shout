@@ -12,8 +12,8 @@ import Shouter from "./components/Shouter";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Auth from "./components/Auth";
-import Header from "./components/Header";
-import NavigationModal from "./components/NavigationModal";
+import Header, { Logo } from "./components/Header";
+import Modal from "./components/Modal";
 import HomePage from "./pages/HomePage";
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
           <Route path="/shout" component={Shout} />
           <Route path="/shouter" component={Shouter} /> */}
           <Route path="/">
-            <NavigationModal />
+            <Modal id="navigationModal" header={Logo} body={Navigation} />
           </Route>
         </BrowserRouter>
       </context.Provider>
