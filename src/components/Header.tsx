@@ -38,6 +38,14 @@ const Header = () => {
                     </div>
 
                     <div className="d-flex justify-content-end flex-nowrap">
+                      <span className="d-none d-lg-block me-3" />
+                      <Link
+                        to="/signup"
+                        type="button"
+                        className="d-none d-lg-block btn btn-primary"
+                      >
+                        Sign up
+                      </Link>
                       <span className="d-block me-3" />
                       <Link
                         to="/login"
@@ -46,6 +54,8 @@ const Header = () => {
                       >
                         Login
                       </Link>
+                      <span className="d-block me-3" />
+                      <MenuToggler />
                     </div>
                   </div>
                 </div>
@@ -56,12 +66,7 @@ const Header = () => {
                   </div>
                   <span className="d-block mb-3" />
                   <div className="d-flex justify-content-between align-items-center flex-nowrap">
-                    <MdMenu
-                      size={38}
-                      className="me-2"
-                      data-bs-toggle="modal"
-                      data-bs-target="#menuModal"
-                    />
+                    <MenuToggler />
                     <span className="d-block me-2" />
                     <div className="flex-grow-1 ">
                       <SearchForm />
@@ -98,6 +103,17 @@ export function Logo() {
     <Link to="/">
       <span className="h2">SHOUT</span>
     </Link>
+  );
+}
+
+function MenuToggler() {
+  return (
+    <MdMenu
+      size={38}
+      className="me-2"
+      data-bs-toggle="modal"
+      data-bs-target="#menuModal"
+    />
   );
 }
 
