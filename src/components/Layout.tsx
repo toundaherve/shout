@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from "react";
-import { Route } from "react-router-dom";
 import Header from "./Header";
 
 interface LayoutProps {
@@ -11,7 +10,7 @@ const Layout: FunctionComponent<LayoutProps> = (props) => {
   const { showBannerAds = true, showAsideAds = true, children } = props;
   return (
     <div className="min-vh-100">
-      <Route path="/" component={Header} />
+      <Header />
       <span className="d-block my-1" />
       <div className="container-sm bg-secondary">
         {showBannerAds && (
