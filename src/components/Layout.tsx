@@ -32,7 +32,7 @@ const Layout: FunctionComponent<LayoutProps> = (props) => {
         )}
 
         <div className="d-flex justify-content-between flex-nowrap">
-          <div className="flex-grow-1 bg-danger vh-100">
+          <div className="flex-grow-1 bg-danger min-vh-100">
             {/* TODO: (min-width) { max-width: calc(100% - 160px[Aside ads width]) } */}
             <div className="position-relative">
               <div>{children}</div>
@@ -42,7 +42,7 @@ const Layout: FunctionComponent<LayoutProps> = (props) => {
           {showAsideAds && (
             <div
               className="d-none d-lg-block flex-grow-0 ms-3 bg-success"
-              style={{ flexBasis: "160px" }}
+              style={{ flexBasis: "160px", minWidth: "160px" }}
             >
               <div className="position-sticky" style={{ top: "calc(92px)" }}>
                 <div className="d-flex justify-content-start">
