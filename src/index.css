@@ -1,9 +1,9 @@
 .header-content {
-  height: 108px;
+  min-height: 108px;
 }
 
 @media (min-width: 768px) {
   .header-content {
-    height: 68px;
+    min-height: 68px;
   }
 }

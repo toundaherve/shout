@@ -12,7 +12,7 @@ const Layout: FunctionComponent<LayoutProps> = (props) => {
   return (
     <div className="min-vh-100">
       <Route path="/" component={Header} />
-      <span className="d-block py-1" />
+      <span className="d-block my-1" />
       <div className="container-sm bg-secondary">
         {showBannerAds && (
           <>

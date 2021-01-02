@@ -1,10 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { MdMenu } from "react-icons/md";
 
 const Header = () => {
+  const [showShadow, setShowShadow] = useState(false);
+  const shadow = showShadow ? "shadow" : "";
+  useEffect(() => {
+    // TODO: Unecessary rerenders called by this listener
+    document.addEventListener("scroll", () => {
+      console.warn(
+        "Fix the unecessary rerenders of the Header triggered by window scrollEvent listener"
+      );
+      const y = window.scrollY;
+      if (y > 2) {
+        setShowShadow(true);
+      } else {
+        setShowShadow(false);
+      }
+    });
+  }, [showShadow]);
   return (
-    <div className="sticky-top">
+    <div
+      className={`sticky-top ${shadow}`}
+      style={{ top: "-48px", transition: "box-shadow 0.2s ease-in-out 0s" }}
+    >
       <div className="header-content bg-white">
         <div className="container-sm">
           <div className="row">
