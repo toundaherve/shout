@@ -38,19 +38,19 @@ const Header = () => {
                     </div>
 
                     <div className="d-flex justify-content-end flex-nowrap">
-                      <span className="d-none d-lg-block me-3" />
+                      <span className="d-block me-3" />
                       <Link
                         to="/signup"
                         type="button"
-                        className="d-none d-lg-block btn btn-primary"
+                        className="btn btn-primary"
                       >
                         Sign up
                       </Link>
-                      <span className="d-block me-3" />
+                      <span className="d-none d-lg-block  me-3" />
                       <Link
                         to="/login"
                         type="button"
-                        className="btn btn-primary"
+                        className="d-none d-lg-block btn btn-primary"
                       >
                         Login
                       </Link>
