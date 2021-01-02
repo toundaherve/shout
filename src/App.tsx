@@ -23,17 +23,25 @@ function App() {
       <context.Provider value={{ state, setState }}>
         <BrowserRouter>
           <Route path="/" component={HomePage} />
+          {/* <Route path="/" component={Login} /> */}
+          {/* <Route path="/" component={SignUp} /> */}
           {/* <Route path="/" component={Auth} />
           <Route path="/" component={Navigation} />
-          <Route path="/login" component={Login} />
-          <Route path="/signup" component={SignUp} />
           <Route path="/" exact component={Hear} />
           <Route path="/voice/:Id" component={Voice} />
           <Route path="/myvoices" component={MyVoices} />
           <Route path="/shout" component={Shout} />
           <Route path="/shouter" component={Shouter} /> */}
           <Route path="/">
-            <Modal id="navigationModal" header={Logo} body={Navigation} />
+            <Modal
+              id="navigationModal"
+              header={Logo}
+              children={(handleClick: () => void) => (
+                <Navigation onClick={handleClick} />
+              )}
+            />
+            <Modal id="loginModal" children={Login} />
+            <Modal id="signupModal" children={SignUp} />
           </Route>
         </BrowserRouter>
       </context.Provider>

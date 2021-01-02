@@ -39,21 +39,23 @@ const Header = () => {
 
                     <div className="d-flex justify-content-end flex-nowrap">
                       <span className="d-block me-3" />
-                      <Link
-                        to="/signup"
+                      <button
                         type="button"
                         className="btn btn-primary"
+                        data-bs-toggle="modal"
+                        data-bs-target="#signupModal"
                       >
                         Sign up
-                      </Link>
+                      </button>
                       <span className="d-none d-lg-block  me-3" />
-                      <Link
-                        to="/login"
+                      <button
                         type="button"
                         className="d-none d-lg-block btn btn-primary"
+                        data-bs-toggle="modal"
+                        data-bs-target="#loginModal"
                       >
                         Login
-                      </Link>
+                      </button>
                       <span className="d-block me-3" />
                       <MenuToggler />
                     </div>

@@ -1,68 +1,59 @@
-import React, { ChangeEvent, FormEvent, useContext, useState } from "react";
-import { Link, RouteComponentProps } from "react-router-dom";
-import context from "../context";
+import React from "react";
+import AuthTemplate from "./Auth";
 
-interface Credentials {
-  username: string;
-  password: string;
+const Login = () => {
+  return <AuthTemplate top={DontHaveAnAccount} body={Form} heading="Log in" />;
+};
+
+function DontHaveAnAccount() {
+  return (
+    <p className="text-center">
+      Don't have an Account?
+      <button type="button" className="btn btn-link">
+        Log in
+      </button>
+    </p>
+  );
 }
 
-const defautlCredentials: Credentials = { username: "", password: "" };
-
-const Login = (props: RouteComponentProps) => {
-  const ctx = useContext(context);
-
-  const [credentials, setCredentials] = useState(defautlCredentials);
-
-  function handleChange(e: ChangeEvent<HTMLInputElement>) {
-    setCredentials({ ...credentials, [e.target.name]: e.target.value });
-  }
-
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-
-    if (ctx.setState) ctx.setState({ ...ctx.state, isLoggedIn: true });
-
-    props.history.push("/myvoices");
-  }
-
+function Form() {
   return (
-    <div className="login">
-      <h1 className="login-title">Login</h1>
-      <form className="login-form" onSubmit={handleSubmit}>
-        <div className="login-field">
-          <label htmlFor="username" className="login-field-label">
-            Username:{" "}
-          </label>
+    <>
+      <span className="d-flex mb-2"></span>
+      <form>
+        <div className="mb-3">
           <input
-            type="text"
-            name="username"
-            id="username"
-            value={credentials.username}
-            onChange={handleChange}
+            type="email"
+            className="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            placeholder="Email address"
           />
         </div>
-        <div className="login-field">
-          <label htmlFor="password" className="login-field-label">
-            Password:{" "}
-          </label>
+        <div className="mb-3">
           <input
             type="password"
-            name="password"
-            id="password"
-            value={credentials.password}
-            onChange={handleChange}
+            className="form-control"
+            id="exampleInputPassword1"
+            placeholder="Password"
           />
         </div>
-        <button className="login-submission" type="submit">
-          Login now
+        <div className="mb-3 form-check">
+          <input
+            type="checkbox"
+            className="form-check-input"
+            id="exampleCheck1"
+          />
+          <label className="form-check-label" htmlFor="exampleCheck1">
+            Check me out
+          </label>
+        </div>
+        <button type="submit" className="btn btn-success w-100">
+          Submit
         </button>
       </form>
-      <p className="login-signup-link">
-        or <Link to="/signup">Sign up</Link>
-      </p>
-    </div>
+    </>
   );
-};
+}
 
 export default Login;

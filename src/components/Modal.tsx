@@ -1,17 +1,24 @@
-import React, { FunctionComponent } from "react";
-import { Link } from "react-router-dom";
-import { Logo } from "./Header";
+import React, { FunctionComponent, useEffect, useRef } from "react";
 
 interface ModalProps {
   id: string;
   header?: FunctionComponent;
-  body: FunctionComponent;
 }
 
-const Modal = (props: ModalProps) => {
+const Modal: FunctionComponent<ModalProps> = (props) => {
   const id = props.id;
   const Header = props.header;
-  const Body = props.body;
+
+  let modalInstance = useRef<Bootstrap.Modal>();
+
+  useEffect(() => {
+    modalInstance.current = new (((window as any).bootstrap as any)
+      .Modal as any)(document.getElementById(id));
+  }, [modalInstance, id]);
+
+  function closeModal() {
+    modalInstance.current?.toggle();
+  }
 
   return (
     <div className="modal" id={id}>
@@ -32,7 +39,7 @@ const Modal = (props: ModalProps) => {
           </div>
 
           <div className="modal-body">
-            <Body />
+            {(props.children as any)(closeModal)}
           </div>
         </div>
       </div>

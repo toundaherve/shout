@@ -1,11 +1,33 @@
 import React from "react";
+import AuthTemplate from "./Auth";
 
-const SignUp = () => {
+const Login = () => {
   return (
-    <div className="signup">
-      <h1 className="signup-title">Sign up</h1>
-    </div>
+    <AuthTemplate
+      top={AlreadyMember}
+      body={ContinueWithEmail}
+      heading="Sign up"
+    />
   );
 };
 
-export default SignUp;
+function AlreadyMember() {
+  return (
+    <p className="text-center">
+      Already a member?
+      <button type="button" className="btn btn-link">
+        Log in
+      </button>
+    </p>
+  );
+}
+
+function ContinueWithEmail() {
+  return (
+    <a href="#1" className="btn btn-outline-secondary w-100">
+      Continue with Email
+    </a>
+  );
+}
+
+export default Login;

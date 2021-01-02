@@ -1,35 +1,48 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Navigation = () => {
+interface NavigationProps {
+  onClick: () => void;
+}
+
+const Navigation = (props: NavigationProps) => {
+  const { onClick } = props;
   return (
     <div className="d-flex flex-column w-100">
       <div className="d-flex justify-content-between flex-nowrap py-2 px-3 mb-3">
-        <Link
-          to="/signup"
+        <button
           type="button"
           className="btn btn-primary flex-grow-1"
+          onClick={onClick}
+          data-bs-toggle="modal"
+          data-bs-target="#signupModal"
         >
           Sign up
-        </Link>
+        </button>
         <span className="d-block mx-2"></span>
-        <Link to="/login" type="button" className="btn btn-primary flex-grow-1">
+        <button
+          type="button"
+          className="btn btn-primary flex-grow-1"
+          data-bs-toggle="modal"
+          data-bs-target="#loginModal"
+          onClick={onClick}
+        >
           Log in
-        </Link>
+        </button>
       </div>
 
       <ul className="nav flex-column">
-        <li className="nav-item">
+        <li className="nav-item" onClick={onClick}>
           <Link className="nav-link active" aria-current="page" to="/shout">
             Shout
           </Link>
         </li>
-        <li className="nav-item">
+        <li className="nav-item" onClick={onClick}>
           <Link className="nav-link" to="/myvoices">
             My voices
           </Link>
         </li>
-        <li className="nav-item">
+        <li className="nav-item" onClick={onClick}>
           <Link className="nav-link" to="/shouter">
             Profile
           </Link>
