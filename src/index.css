@@ -1,8 +1,17 @@
+.header {
+  top: -48px;
+  transition: box-shadow 0.2s ease-in-out 0s;
+}
+
 .header-content {
   min-height: 108px;
 }
 
 @media (min-width: 768px) {
+  .header {
+    top: 0px;
+  }
+
   .header-content {
     min-height: 68px;
   }

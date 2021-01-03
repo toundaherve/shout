@@ -20,10 +20,7 @@ const Header = () => {
     });
   }, [showShadow]);
   return (
-    <div
-      className={`sticky-top ${shadow}`}
-      style={{ top: "-48px", transition: "box-shadow 0.2s ease-in-out 0s" }}
-    >
+    <div className={`sticky-top ${shadow} header`}>
       <div className="header-content bg-white">
         <div className="container-sm">
           <div className="row">
