@@ -25,7 +25,7 @@ const Header = () => {
         <div className="container-sm">
           <div className="row">
             <div className="col">
-              <div className="d-flex py-3">
+              <div className="d-flex" style={{ padding: "12px 0" }}>
                 <div className="d-none d-md-block w-100">
                   <div className="d-flex align-items-center flex-nowrap">
                     <div className="d-flex flex-nowrap flex-grow-1 justify-content-start">
@@ -63,7 +63,7 @@ const Header = () => {
                   <div className="d-flex flex-wrap justify-content-center align-items-center w-100">
                     <Logo />
                   </div>
-                  <span className="d-block mb-3" />
+                  <span className="d-block" style={{ marginBottom: "12px" }} />
                   <div className="d-flex justify-content-between align-items-center flex-nowrap">
                     <MenuToggler />
                     <span className="d-block me-2" />
