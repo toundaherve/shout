@@ -99,17 +99,16 @@ function CardGrid() {
   }
 
   return (
-    <div className="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-2">
+    <div className="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-2">
       {mockCards.map((val, idx) => (
         <div className="col" key={idx}>
           <div className="card">
             <div className="card-body">
-              <h5 className="card-title">Card title</h5>
-              <p className="card-text">
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
+              <h5 className="card-title">Iphone 7s Black</h5>
+              <h6 className="card-subtitle mb-2 text-muted">Stephanie</h6>
+              <h6 className="card-subtitle mb-2 text-muted">Leeds, UK</h6>
+              <h5 className="card-title">$700</h5>
+              <p className="card-text">This is a longer ...</p>
             </div>
           </div>
         </div>
