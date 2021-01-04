@@ -7,7 +7,7 @@ const HomePage = () => {
     <Layout>
       <UnifiedHeader />
       <span className="d-block mb-2"></span>
-      <CardGrid />
+      <Results />
       <LoadMore />
     </Layout>
   );
@@ -92,6 +92,23 @@ function Filter(props: FilterProps) {
   );
 }
 
+function Results() {
+  return (
+    <div className="container">
+      <div className="row">
+        <div className="col-12 col-md-5">
+          <CardGrid />
+        </div>
+        <div className="d-none d-md-block col-7">
+          <div className="position-sticky" style={{ top: "84px" }}>
+            <ItemDescription />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function CardGrid() {
   const mockCards = [];
   for (let index = 0; index < 40; index++) {
@@ -99,7 +116,7 @@ function CardGrid() {
   }
 
   return (
-    <div className="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-2">
+    <div className="row row-cols-1 g-2">
       {mockCards.map((val, idx) => (
         <div className="col" key={idx}>
           <div className="card">
@@ -113,6 +130,32 @@ function CardGrid() {
           </div>
         </div>
       ))}
+    </div>
+  );
+}
+
+function ItemDescription() {
+  return (
+    <div className="card">
+      <div className="card-body">
+        <h5 className="card-title">Iphone 7s Black</h5>
+        <h6 className="card-subtitle mb-2 text-muted">Stephanie</h6>
+        <h6 className="card-subtitle mb-2 text-muted">Leeds, UK</h6>
+        <h5 className="card-title">$700</h5>
+        <a href="#1" className="btn btn-primary me-3 ">
+          Take offer
+        </a>
+        <a href="#1" className="btn btn-secondary">
+          Save
+        </a>
+      </div>
+      <div className="card-body">
+        <p className="card-text">
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content. Some quick example text to build on the
+          card title and make up the bulk of the card's content.
+        </p>
+      </div>
     </div>
   );
 }
