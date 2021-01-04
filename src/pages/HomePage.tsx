@@ -94,15 +94,13 @@ function Filter(props: FilterProps) {
 
 function Results() {
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-12 col-md-5">
-          <CardGrid />
-        </div>
-        <div className="d-none d-md-block col-7">
-          <div className="position-sticky" style={{ top: "84px" }}>
-            <ItemDescription />
-          </div>
+    <div className="row g-3">
+      <div className="col-12 col-md-5">
+        <CardGrid />
+      </div>
+      <div className="d-none d-md-block col-7">
+        <div className="position-sticky" style={{ top: "88px" }}>
+          <ItemDescription />
         </div>
       </div>
     </div>
@@ -115,18 +113,34 @@ function CardGrid() {
     mockCards.push(index);
   }
 
+  const Card = () => (
+    <div className="card">
+      <div className="card-body">
+        <h5 className="card-title">Iphone 7s Black</h5>
+        <h6 className="card-subtitle mb-2 text-muted">Stephanie</h6>
+        <h6 className="card-subtitle mb-2 text-muted">Leeds, UK</h6>
+        <h5 className="card-title">$700</h5>
+        <p className="card-text">This is a longer ...</p>
+      </div>
+    </div>
+  );
+
   return (
     <div className="row row-cols-1 g-2">
       {mockCards.map((val, idx) => (
         <div className="col" key={idx}>
-          <div className="card">
-            <div className="card-body">
-              <h5 className="card-title">Iphone 7s Black</h5>
-              <h6 className="card-subtitle mb-2 text-muted">Stephanie</h6>
-              <h6 className="card-subtitle mb-2 text-muted">Leeds, UK</h6>
-              <h5 className="card-title">$700</h5>
-              <p className="card-text">This is a longer ...</p>
-            </div>
+          <div
+            className="d-none d-md-block "
+            onClick={() => console.log("Card clicked")}
+          >
+            <Card />
+          </div>
+          <div
+            className="d-md-none "
+            data-bs-toggle="modal"
+            data-bs-target="#itemDescriptionModal"
+          >
+            <Card />
           </div>
         </div>
       ))}
@@ -134,7 +148,7 @@ function CardGrid() {
   );
 }
 
-function ItemDescription() {
+export function ItemDescription() {
   return (
     <div className="card">
       <div className="card-body">

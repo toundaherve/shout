@@ -15,6 +15,7 @@ import Auth from "./components/Auth";
 import Header, { Logo } from "./components/Header";
 import Modal from "./components/Modal";
 import HomePage from "./pages/HomePage";
+import { ItemDescription } from "./pages/HomePage";
 
 function App() {
   const [state, setState] = useState(defaultState);
@@ -42,6 +43,7 @@ function App() {
             />
             <Modal id="loginModal" children={Login} />
             <Modal id="signupModal" children={SignUp} />
+            <Modal id="itemDescriptionModal" children={ItemDescription} />
           </Route>
         </BrowserRouter>
       </context.Provider>
