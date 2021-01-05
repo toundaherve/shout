@@ -14,7 +14,7 @@ const HomePage = () => {
 };
 
 function UnifiedHeader() {
-  const mockFilters = ["category", "condition"];
+  const mockFilters = ["category", "price", "location"];
   return (
     <div className="UnifiedHeader">
       <div className="flex-wrap">
@@ -53,7 +53,7 @@ function UnifiedHeader() {
           <div className="d-flex flex-nowrap ">
             {mockFilters.map((filter, idx) => (
               <div className="d-flex px-1 py-2" key={idx}>
-                <Filter name={filter} options={["Electronics", "Fashion"]} />
+                <Filter name={filter} options={["####", "####"]} />
               </div>
             ))}
           </div>
@@ -137,8 +137,8 @@ function CardGrid() {
           </div>
           <div
             className="d-md-none "
-            data-bs-toggle="modal"
-            data-bs-target="#itemDescriptionModal"
+            // data-bs-toggle="modal"
+            // data-bs-target="#itemDescriptionModal"
           >
             <ItemDescription />
           </div>
@@ -174,14 +174,10 @@ export function ItemDescription() {
 
 function LoadMore() {
   return (
-    <div className="row">
-      <div className="col-12">
-        <div className="d-flex justify-content-center flex-wrap py-3">
-          <button type="button" className="btn btn-success">
-            Load more
-          </button>
-        </div>
-      </div>
+    <div className="d-flex justify-content-center flex-wrap py-3">
+      <button type="button" className="btn btn-success">
+        Load more
+      </button>
     </div>
   );
 }

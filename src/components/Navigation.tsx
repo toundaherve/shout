@@ -34,12 +34,12 @@ const Navigation = (props: NavigationProps) => {
       <ul className="nav flex-column">
         <li className="nav-item" onClick={onClick}>
           <Link className="nav-link active" aria-current="page" to="/shout">
-            Shout
+            Make bid
           </Link>
         </li>
         <li className="nav-item" onClick={onClick}>
           <Link className="nav-link" to="/myvoices">
-            My voices
+            My bids
           </Link>
         </li>
         <li className="nav-item" onClick={onClick}>
