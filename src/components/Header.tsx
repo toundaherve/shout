@@ -105,6 +105,14 @@ export function Logo() {
   );
 }
 
+export function SmallLogo() {
+  return (
+    <Link to="/">
+      <span className="h6">Bid Bang</span>
+    </Link>
+  );
+}
+
 function MenuToggler() {
   return (
     <MdMenu

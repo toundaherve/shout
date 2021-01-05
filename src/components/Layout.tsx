@@ -1,5 +1,7 @@
 import React, { FunctionComponent } from "react";
-import Header from "./Header";
+import { Link } from "react-router-dom";
+import Footer from "./Footer";
+import Header, { Logo } from "./Header";
 
 interface LayoutProps {
   showBannerAds?: boolean;
@@ -51,7 +53,9 @@ const Layout: FunctionComponent<LayoutProps> = (props) => {
             </div>
           )}
         </div>
+        <span className="d-block mb-3"></span>
       </div>
+      <Footer />
     </div>
   );
 };
