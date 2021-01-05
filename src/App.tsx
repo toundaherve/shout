@@ -20,7 +20,7 @@ import { ItemDescription } from "./pages/HomePage";
 function App() {
   const [state, setState] = useState(defaultState);
   return (
-    <div className="App">
+    <div className="App bg-light">
       <context.Provider value={{ state, setState }}>
         <BrowserRouter>
           <Route path="/" component={HomePage} />

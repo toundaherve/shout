@@ -4,7 +4,7 @@ import Layout from "../components/Layout";
 
 const HomePage = () => {
   return (
-    <Layout>
+    <Layout showAsideAds={false} showBannerAds={false}>
       <UnifiedHeader />
       <span className="d-block mb-2"></span>
       <Results />
@@ -25,15 +25,15 @@ function UnifiedHeader() {
               <Link to="/">Home</Link>
             </li>
             <li className="breadcrumb-item active" aria-current="page">
-              Library
+              iphone
             </li>
           </ol>
         </nav>
-        <h1>Ads for "Iphone" for Sale</h1>
+        <h1>Bids for "Iphone 7s Black"</h1>
         <div className="d-block flex-nowrap">
           <div className="d-none d-lg-block">
             <div className="d-flex flex-wrap">
-              <span className="flex-grow-1 bg-dark"></span>
+              <span className="flex-grow-1"></span>
               <div
                 className="btn-group"
                 role="group"
@@ -95,10 +95,10 @@ function Filter(props: FilterProps) {
 function Results() {
   return (
     <div className="row g-3">
-      <div className="col-12 col-md-5">
+      <div className="col-12">
         <CardGrid />
       </div>
-      <div className="d-none d-md-block col-7">
+      <div className="d-none col-7">
         <div className="position-sticky" style={{ top: "88px" }}>
           <ItemDescription />
         </div>
@@ -126,21 +126,21 @@ function CardGrid() {
   );
 
   return (
-    <div className="row row-cols-1 g-2">
+    <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-2">
       {mockCards.map((val, idx) => (
         <div className="col" key={idx}>
           <div
             className="d-none d-md-block "
             onClick={() => console.log("Card clicked")}
           >
-            <Card />
+            <ItemDescription />
           </div>
           <div
             className="d-md-none "
             data-bs-toggle="modal"
             data-bs-target="#itemDescriptionModal"
           >
-            <Card />
+            <ItemDescription />
           </div>
         </div>
       ))}
@@ -156,19 +156,17 @@ export function ItemDescription() {
         <h6 className="card-subtitle mb-2 text-muted">Stephanie</h6>
         <h6 className="card-subtitle mb-2 text-muted">Leeds, UK</h6>
         <h5 className="card-title">$700</h5>
+        <p className="card-text">
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
+        </p>
+
         <a href="#1" className="btn btn-primary me-3 ">
-          Take offer
+          Take bid
         </a>
         <a href="#1" className="btn btn-secondary">
           Save
         </a>
-      </div>
-      <div className="card-body">
-        <p className="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content. Some quick example text to build on the
-          card title and make up the bulk of the card's content.
-        </p>
       </div>
     </div>
   );
@@ -177,7 +175,7 @@ export function ItemDescription() {
 function LoadMore() {
   return (
     <div className="row">
-      <div className="col-12 col-md-5">
+      <div className="col-12">
         <div className="d-flex justify-content-center flex-wrap py-3">
           <button type="button" className="btn btn-success">
             Load more

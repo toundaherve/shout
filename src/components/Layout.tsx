@@ -12,7 +12,7 @@ const Layout: FunctionComponent<LayoutProps> = (props) => {
     <div className="min-vh-100">
       <Header />
       <span className="d-block my-1" />
-      <div className="container-sm bg-secondary">
+      <div className="container-sm">
         {showBannerAds && (
           <>
             <div className="d-block bg-dark">
@@ -31,7 +31,7 @@ const Layout: FunctionComponent<LayoutProps> = (props) => {
         )}
 
         <div className="d-flex justify-content-between flex-nowrap">
-          <div className="flex-grow-1 bg-danger min-vh-100">
+          <div className="flex-grow-1 min-vh-100">
             {/* TODO: (min-width) { max-width: calc(100% - 160px[Aside ads width]) } */}
             <div className="position-relative">
               <div>{children}</div>

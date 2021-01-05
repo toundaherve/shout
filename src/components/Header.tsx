@@ -100,7 +100,7 @@ function SearchForm() {
 export function Logo() {
   return (
     <Link to="/">
-      <span className="h2">SHOUT</span>
+      <span className="h2">Bid Bang</span>
     </Link>
   );
 }
