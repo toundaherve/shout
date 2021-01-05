@@ -176,10 +176,14 @@ export function ItemDescription() {
 
 function LoadMore() {
   return (
-    <div className="d-flex justify-content-center flex-wrap py-3">
-      <button type="button" className="btn btn-success">
-        Load more
-      </button>
+    <div className="row">
+      <div className="col-12 col-md-5">
+        <div className="d-flex justify-content-center flex-wrap py-3">
+          <button type="button" className="btn btn-success">
+            Load more
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
