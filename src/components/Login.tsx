@@ -38,9 +38,9 @@ const Login = (props: LoginProps) => {
       <Header>
         <p className="text-center">
           Don't have an Account?
-          <button type="button" className="btn btn-link">
+          <a href="#/signup" type="button" className="btn btn-link">
             Sign up
-          </button>
+          </a>
         </p>
       </Header>
 

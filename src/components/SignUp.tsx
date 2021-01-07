@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FormEvent, useState } from "react";
+import React, { ChangeEvent, FormEvent } from "react";
 import { FaFacebook, FaApple } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { ErrorMessage, Header, Input, SubmitButton, Title } from "./Login";
@@ -18,9 +18,9 @@ export function WithOAuth(props: WithOAuthProps) {
       <Header>
         <p className="text-center">
           Already have an Account?
-          <button type="button" className="btn btn-link">
+          <a href="#/login" type="button" className="btn btn-link">
             Log in
-          </button>
+          </a>
         </p>
       </Header>
 
@@ -56,13 +56,12 @@ export function WithOAuth(props: WithOAuthProps) {
 
       <span className="d-flex mb-2"></span>
 
-      <a
-        href="#1"
+      <button
         className="btn btn-outline-secondary w-100"
         onClick={handleEmailStrategySelection}
       >
         Continue with Email
-      </a>
+      </button>
     </>
   );
 }

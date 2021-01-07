@@ -36,25 +36,31 @@ const Header = () => {
 
                     <div className="d-flex justify-content-end flex-nowrap">
                       <span className="d-block me-3" />
-                      <button
-                        type="button"
-                        className="btn btn-primary"
-                        data-bs-toggle="modal"
-                        data-bs-target="#signupModal"
-                      >
-                        Sign up
-                      </button>
+                      <a href="#/signup">
+                        <button
+                          type="button"
+                          className="btn btn-primary"
+                          data-bs-toggle="modal"
+                          data-bs-target="#myModal"
+                        >
+                          Sign up
+                        </button>
+                      </a>
                       <span className="d-none d-lg-block  me-3" />
-                      <button
-                        type="button"
-                        className="d-none d-lg-block btn btn-primary"
-                        data-bs-toggle="modal"
-                        data-bs-target="#loginModal"
-                      >
-                        Login
-                      </button>
+                      <a href="#/login">
+                        <button
+                          type="button"
+                          className="d-none d-lg-block btn btn-primary"
+                          data-bs-toggle="modal"
+                          data-bs-target="#myModal"
+                        >
+                          Login
+                        </button>
+                      </a>
                       <span className="d-block me-3" />
-                      <MenuToggler />
+                      <a href="#/navigation" className="text-dark">
+                        <MenuToggler />
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -65,7 +71,9 @@ const Header = () => {
                   </div>
                   <span className="d-block" style={{ marginBottom: "12px" }} />
                   <div className="d-flex justify-content-between align-items-center flex-nowrap">
-                    <MenuToggler />
+                    <a href="#/navigation" className="text-dark">
+                      <MenuToggler />
+                    </a>
                     <span className="d-block me-2" />
                     <div className="flex-grow-1 ">
                       <SearchForm />
@@ -119,7 +127,7 @@ function MenuToggler() {
       size={38}
       className="me-2"
       data-bs-toggle="modal"
-      data-bs-target="#navigationModal"
+      data-bs-target="#myModal"
     />
   );
 }

@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from "react";
-import { Link } from "react-router-dom";
 import Footer from "./Footer";
-import Header, { Logo } from "./Header";
+import Header from "./Header";
 
 interface LayoutProps {
   showBannerAds?: boolean;
