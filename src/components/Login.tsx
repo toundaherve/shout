@@ -10,25 +10,31 @@ import { FcGoogle } from "react-icons/fc";
 interface LoginProps {
   email: string;
   password: string;
-  handleSubmit: () => void;
-  handleInputChange: () => void;
+  loading: boolean;
+  error: string;
+  handleSubmit: (e: FormEvent) => void;
+  handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const Login = (props: LoginProps) => {
   const {
     email = "",
     password = "",
+    loading = false,
+    error = "",
     handleSubmit = (e: FormEvent) => {
       e.preventDefault();
 
-      console.log("Handling submit");
+      console.log("Provide a submit handler");
     },
-    handleInputChange = (e: ChangeEvent<HTMLInputElement>) =>
-      console.log("Handling change"),
+    handleChange = (e: ChangeEvent<HTMLInputElement>) =>
+      console.log("Provide an Input change handler"),
   } = props;
 
   return (
     <>
+      {error && <ErrorMessage error={error} />}
+
       <Header>
         <p className="text-center">
           Don't have an Account?
@@ -75,7 +81,7 @@ const Login = (props: LoginProps) => {
           name="email"
           value={email}
           placeholder="Email"
-          onChange={handleInputChange}
+          onChange={handleChange}
         />
 
         <div className="mb-3">
@@ -84,7 +90,7 @@ const Login = (props: LoginProps) => {
             name="password"
             value={password}
             placeholder="Password"
-            onChange={handleInputChange}
+            onChange={handleChange}
           />
         </div>
 
@@ -99,7 +105,7 @@ const Login = (props: LoginProps) => {
           </label>
         </div>
 
-        <SubmitButton>Submit</SubmitButton>
+        <SubmitButton loading={loading}>Submit</SubmitButton>
       </form>
     </>
   );
@@ -127,11 +133,29 @@ export function Input(props: InputHTMLAttributes<HTMLInputElement>) {
   );
 }
 
-export function SubmitButton(props: PropsWithChildren<any>) {
+export function SubmitButton(props: PropsWithChildren<{ loading?: boolean }>) {
+  const { loading = false } = props;
   return (
-    <button type="submit" className="btn btn-success w-100">
-      {props.children}
+    <button type="submit" className="btn btn-success w-100" disabled={loading}>
+      {loading ? (
+        <div className="text-center">
+          <div className="spinner-border spinner-border-sm" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      ) : (
+        props.children
+      )}
     </button>
+  );
+}
+
+export function ErrorMessage(props: { error: string }) {
+  const { error } = props;
+  return (
+    <div className="alert alert-danger" role="alert">
+      {error}
+    </div>
   );
 }
 export default Login;

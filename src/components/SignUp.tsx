@@ -1,23 +1,13 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 import { FaFacebook, FaApple } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { Header, Input, SubmitButton, Title } from "./Login";
-
-const Signup = () => {
-  const [strategy, setStrategy] = useState("");
-
-  return strategy === "email" ? (
-    <WithEmail />
-  ) : (
-    <WithOAuth handleEmailStrategySelection={() => setStrategy("email")} />
-  );
-};
+import { ErrorMessage, Header, Input, SubmitButton, Title } from "./Login";
 
 interface WithOAuthProps {
   handleEmailStrategySelection?: () => void;
 }
 
-function WithOAuth(props: WithOAuthProps) {
+export function WithOAuth(props: WithOAuthProps) {
   const {
     handleEmailStrategySelection = () => {
       console.log("Handle Email strategy");
@@ -77,9 +67,39 @@ function WithOAuth(props: WithOAuthProps) {
   );
 }
 
-function WithEmail() {
+interface WithEmailProps {
+  firstName: string;
+  lastName: string;
+  location: string;
+  email: string;
+  password: string;
+  loading: boolean;
+  error: string;
+  handleSubmit: (e: FormEvent) => void;
+  handleInputChange: (e: ChangeEvent<HTMLInputElement>) => void;
+}
+
+export function WithEmail(props: WithEmailProps) {
+  const {
+    firstName = "",
+    lastName = "",
+    location = "",
+    email = "",
+    password = "",
+    loading = false,
+    error = "",
+    handleSubmit = (e: FormEvent) => {
+      e.preventDefault();
+
+      console.log("Provide a submit handler");
+    },
+    handleInputChange = (e: ChangeEvent<HTMLInputElement>) =>
+      console.log("Provide an Input change handler"),
+  } = props;
   return (
     <>
+      {error && <ErrorMessage error={error} />}
+
       <Header>
         <p className="text-center">
           Sign up with
@@ -95,16 +115,44 @@ function WithEmail() {
 
       <span className="mb-3 d-block"></span>
 
-      <form>
-        <Input placeholder="First name" type="text" />
-        <Input placeholder="Last name" type="text" />
-        <Input placeholder="Location" type="text" />
-        <Input placeholder="Email address" type="email" />
-        <Input placeholder="Create a password" type="password" />
-        <SubmitButton>Sign up</SubmitButton>
+      <form onSubmit={handleSubmit}>
+        <Input
+          placeholder="First name"
+          type="text"
+          value={firstName}
+          name="firstName"
+          onChange={handleInputChange}
+        />
+        <Input
+          placeholder="Last name"
+          type="text"
+          value={lastName}
+          name="lastName"
+          onChange={handleInputChange}
+        />
+        <Input
+          placeholder="Location"
+          type="text"
+          value={location}
+          name="location"
+          onChange={handleInputChange}
+        />
+        <Input
+          placeholder="Email address"
+          type="email"
+          value={email}
+          name="email"
+          onChange={handleInputChange}
+        />
+        <Input
+          placeholder="Create a password"
+          type="password"
+          value={password}
+          name="password"
+          onChange={handleInputChange}
+        />
+        <SubmitButton loading={loading}>Sign up</SubmitButton>
       </form>
     </>
   );
 }
-
-export default Signup;

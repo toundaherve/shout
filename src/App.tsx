@@ -10,12 +10,12 @@ import Shout from "./components/Shout";
 import Navigation from "./components/Navigation";
 import Shouter from "./components/Shouter";
 import Login from "./components/Login";
-import SignUp from "./components/SignUp";
-import Auth from "./components/Auth";
 import Header, { Logo } from "./components/Header";
 import Modal from "./components/Modal";
 import HomePage from "./pages/HomePage";
 import { ItemDescription } from "./pages/HomePage";
+import SignupContainer from "./containers/SignUpContainer";
+import LoadingContainer from "./containers/LoginContainer";
 
 function App() {
   const [state, setState] = useState(defaultState);
@@ -41,8 +41,8 @@ function App() {
                 <Navigation onClick={handleClick} />
               )}
             />
-            <Modal id="loginModal" children={Login} />
-            <Modal id="signupModal" children={SignUp} />
+            <Modal id="loginModal" children={LoadingContainer} />
+            <Modal id="signupModal" children={SignupContainer} />
             <Modal id="itemDescriptionModal" children={ItemDescription} />
           </Route>
         </BrowserRouter>
