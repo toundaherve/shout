@@ -67,6 +67,7 @@ export function WithOAuth(props: WithOAuthProps) {
 }
 
 interface WithEmailProps {
+  username: string;
   firstName: string;
   lastName: string;
   location: string;
@@ -80,6 +81,7 @@ interface WithEmailProps {
 
 export function WithEmail(props: WithEmailProps) {
   const {
+    username = "",
     firstName = "",
     lastName = "",
     location = "",
@@ -116,11 +118,20 @@ export function WithEmail(props: WithEmailProps) {
 
       <form onSubmit={handleSubmit}>
         <Input
+          placeholder="Username"
+          type="text"
+          value={username}
+          name="username"
+          onChange={handleInputChange}
+          required
+        />
+        <Input
           placeholder="First name"
           type="text"
           value={firstName}
           name="firstName"
           onChange={handleInputChange}
+          required
         />
         <Input
           placeholder="Last name"
@@ -128,6 +139,7 @@ export function WithEmail(props: WithEmailProps) {
           value={lastName}
           name="lastName"
           onChange={handleInputChange}
+          required
         />
         <Input
           placeholder="Location"
@@ -135,6 +147,7 @@ export function WithEmail(props: WithEmailProps) {
           value={location}
           name="location"
           onChange={handleInputChange}
+          required
         />
         <Input
           placeholder="Email address"
@@ -142,6 +155,7 @@ export function WithEmail(props: WithEmailProps) {
           value={email}
           name="email"
           onChange={handleInputChange}
+          required
         />
         <Input
           placeholder="Create a password"
@@ -149,6 +163,9 @@ export function WithEmail(props: WithEmailProps) {
           value={password}
           name="password"
           onChange={handleInputChange}
+          minLength={6}
+          maxLength={20}
+          required
         />
         <SubmitButton loading={loading}>Sign up</SubmitButton>
       </form>

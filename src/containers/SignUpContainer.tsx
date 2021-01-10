@@ -3,6 +3,7 @@ import { WithEmail, WithOAuth } from "../components/SignUp";
 
 const SignupContainer = () => {
   const [userInfo, setUserInfo] = useState({
+    username: "",
     firstName: "",
     lastName: "",
     location: "",
