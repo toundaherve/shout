@@ -1,5 +1,12 @@
-import React, { ChangeEvent, FormEvent, useState } from "react";
+import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { WithEmail, WithOAuth } from "../components/SignUp";
+
+interface APIResponse {
+  Code: number;
+  Type: string;
+  Message: string;
+}
 
 const SignupContainer = () => {
   const [userInfo, setUserInfo] = useState({
@@ -21,19 +28,33 @@ const SignupContainer = () => {
     setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
   }
 
+  const history = useHistory();
+
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
 
     setLoading(true);
 
-    setTimeout(() => {
-      setError(
-        "The account details you entered are incorrect. Please try again."
-      );
-      setLoading(false);
-    }, 3000);
+    fetch("http://192.168.1.68:4000/user", {
+      mode: "cors",
+      method: "POST",
+      body: JSON.stringify(userInfo),
+    })
+      .then((response) => response.json())
+      .then((data: APIResponse) => {
+        setLoading(false);
 
-    console.log("Submitting sign up info");
+        if (data.Type === "error") {
+          setError(data.Message);
+        } else {
+          history.push("/login-just-registered");
+        }
+      })
+      .catch((err) => {
+        setLoading(false);
+        console.warn(err);
+        setError("We are unable to perfom this action now. Retry later !");
+      });
   }
 
   return strategy === "email" ? (

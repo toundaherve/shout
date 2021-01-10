@@ -1,7 +1,11 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import Login from "../components/Login";
 
-const LoadingContainer = () => {
+interface LoadingContainerProps {
+  justRegistered?: boolean;
+}
+
+const LoadingContainer = (props: LoadingContainerProps) => {
   const [userInfo, setUserInfo] = useState({
     email: "",
     password: "",
@@ -34,6 +38,7 @@ const LoadingContainer = () => {
     <Login
       {...userInfo}
       error={error}
+      justRegistered={props.justRegistered}
       loading={loading}
       handleSubmit={handleSubmit}
       handleChange={handleChange}

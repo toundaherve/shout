@@ -12,6 +12,7 @@ interface LoginProps {
   password: string;
   loading: boolean;
   error: string;
+  justRegistered?: boolean;
   handleSubmit: (e: FormEvent) => void;
   handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
@@ -22,6 +23,7 @@ const Login = (props: LoginProps) => {
     password = "",
     loading = false,
     error = "",
+    justRegistered = false,
     handleSubmit = (e: FormEvent) => {
       e.preventDefault();
 
@@ -35,14 +37,22 @@ const Login = (props: LoginProps) => {
     <>
       {error && <ErrorMessage error={error} />}
 
-      <Header>
-        <p className="text-center">
-          Don't have an Account?
-          <a href="#/signup" type="button" className="btn btn-link">
-            Sign up
-          </a>
-        </p>
-      </Header>
+      {justRegistered && (
+        <div className="alert alert-success" role="alert">
+          Your new account has been created. You can now login !
+        </div>
+      )}
+
+      {!justRegistered && (
+        <Header>
+          <p className="text-center">
+            Don't have an Account?
+            <a href="#/signup" type="button" className="btn btn-link">
+              Sign up
+            </a>
+          </p>
+        </Header>
+      )}
 
       <Title>Log in</Title>
       <a

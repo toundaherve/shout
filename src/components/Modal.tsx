@@ -51,6 +51,10 @@ const Modal: FunctionComponent<any> = (props) => {
               <Route path="/login">
                 <LoginContainer />
               </Route>
+
+              <Route path="/login-just-registered">
+                <LoginContainer justRegistered />
+              </Route>
             </div>
           </div>
         </div>
